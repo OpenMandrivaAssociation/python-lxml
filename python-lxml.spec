@@ -4,15 +4,15 @@
 Name:           python-%{modname}
 URL:            http://codespeak.net/lxml/
 Summary:        A Pythonic binding for the libxml2 and libxslt libraries
-Version:        0.9.1
-Release:        %mkrel 4
+Version:        1.3.2
+Release:        %mkrel 1
 License:        BSD
 Group:          Development/Python
 Source:         http://codespeak.net/lxml/%{modname}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 Requires:       python
 
-BuildRequires:  libxml2-devel libxslt-devel pyrex python-devel
+BuildRequires:  libxml2-devel libxslt-devel python-pyrex python-devel
 
 %description
 lxml is a Pythonic binding for the libxml2 and libxslt libraries. It follows
