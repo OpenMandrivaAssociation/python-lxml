@@ -9,6 +9,7 @@ Release:        %mkrel 1
 License:        BSD
 Group:          Development/Python
 Source:         http://codespeak.net/lxml/%{modname}-%{version}.tar.bz2
+BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 Requires:       python
 
 BuildRequires:  libxml2-devel libxslt-devel python-pyrex python-devel
