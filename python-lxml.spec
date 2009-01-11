@@ -4,11 +4,11 @@
 Name:           python-%{modname}
 URL:            http://codespeak.net/lxml/
 Summary:        A Pythonic binding for the libxml2 and libxslt libraries
-Version:        2.1.4
+Version:        2.1.5
 Release:        %mkrel 1
 License:        BSD
 Group:          Development/Python
-Source:         http://codespeak.net/lxml/%{modname}-%{version}.tar.bz2
+Source:         http://pypi.python.org/packages/source/l/lxml/%{modname}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 %py_requires -d
 BuildRequires:  libxml2-devel libxslt-devel python-pyrex
