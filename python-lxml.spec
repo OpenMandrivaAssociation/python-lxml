@@ -8,9 +8,12 @@ Release:        %mkrel 1
 License:        BSD
 Group:          Development/Python
 Source:         http://pypi.python.org/packages/source/l/lxml/%{modname}-%{version}.tar.gz
-BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 BuildRequires:  python-devel
-BuildRequires:  libxml2-devel libxslt-devel python-pyrex
+BuildRequires:  libxml2-devel
+BuildRequires:  libxslt-devel
+BuildRequires:  python-pyrex
+BuildRequires:  python-setuptools
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 lxml is a Pythonic binding for the libxml2 and libxslt libraries. It follows
