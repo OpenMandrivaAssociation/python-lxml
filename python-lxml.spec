@@ -54,7 +54,7 @@ rm -rf  %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc CHANGES.txt CREDITS.txt LICENSES.txt README.txt TODO.txt
+%doc CHANGES.txt CREDITS.txt LICENSES.txt README.rst TODO.txt
 %exclude %{_docdir}/%{name}/doc
 %py_platsitedir/lxml*
 
