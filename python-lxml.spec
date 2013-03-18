@@ -3,11 +3,11 @@
 Name:           python-%{modname}
 URL:            http://codespeak.net/lxml/
 Summary:        A Pythonic binding for the libxml2 and libxslt libraries
-Version:        2.3.6
+Version:        3.0.1
 Release:        1
 License:        BSD
 Group:          Development/Python
-Source:         http://pypi.python.org/packages/source/l/lxml/%{modname}-%{version}.tar.gz
+Source:         http://pypi.python.org/packages/source/l/lxml/lxml-%{version}.tar.gz
 BuildRequires:  python-devel
 BuildRequires:  libxml2-devel
 BuildRequires:  libxslt-devel
@@ -61,3 +61,4 @@ rm -rf  %{buildroot}
 %files docs
 %defattr(-,root,root)
 %doc %{_docdir}/%{name}/doc
+

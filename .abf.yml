@@ -1,2 +1,4 @@
+removed_sources:
+  lxml-2.3.6.tar.gz: e6ac95a3eea1a36b117207f03a8c767afe23f5a3
 sources:
-  "lxml-2.3.6.tar.gz": e6ac95a3eea1a36b117207f03a8c767afe23f5a3
+  lxml-3.0.1.tar.gz: bb7fa04e1a49091151608df347cf12e10e9ed7f1
