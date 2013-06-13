@@ -3,7 +3,7 @@
 Name:           python-%{modname}
 URL:            http://codespeak.net/lxml/
 Summary:        A Pythonic binding for the libxml2 and libxslt libraries
-Version:        3.1.0
+Version:        3.2.1
 Release:        1
 License:        BSD
 Group:          Development/Python
@@ -11,7 +11,8 @@ Source:         http://pypi.python.org/packages/source/l/lxml/lxml-%{version}.ta
 BuildRequires:  python-devel
 BuildRequires:  libxml2-devel
 BuildRequires:  libxslt-devel
-#BuildRequires:  python-pyrex
+BuildRequires:  python-cython
+
 BuildRequires:  python-setuptools
 
 %description
@@ -24,7 +25,7 @@ functionality, such as XPath, Relax NG, XML Schema, XSLT, and c14n.
 Summary:    A Pythonic binding for the libxml2 and libxslt libraries
 Group:      Development/Python
 BuildRequires:  python3-devel
-
+BuildRequires:  python3-cython
 
 %description
 lxml is a Pythonic binding for the libxml2 and libxslt libraries. It follows
@@ -53,12 +54,11 @@ cp -r python2 python3
 %build
 
 pushd python2
-%{__python} setup.py build
+%{__python} setup.py build --with-cython
 popd
 
 pushd python3
-export LDFLAGS="-lpython%{py3_ver}"
-%{__python3} setup.py build
+%{__python3} setup.py build --with-cython
 popd
 
 
@@ -92,4 +92,5 @@ cp -r python2/doc/* %{buildroot}%{_docdir}/%{name}/doc
 %files docs
 %defattr(-,root,root)
 %doc %{_docdir}/%{name}/doc
+
 
