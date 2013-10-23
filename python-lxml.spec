@@ -3,7 +3,7 @@
 Name:           python-%{modname}
 URL:            http://codespeak.net/lxml/
 Summary:        A Pythonic binding for the libxml2 and libxslt libraries
-Version:        3.2.1
+Version:        3.2.3
 Release:        1
 License:        BSD
 Group:          Development/Python
@@ -78,19 +78,17 @@ cp -r python2/doc/* %{buildroot}%{_docdir}/%{name}/doc
 
 
 %files
-%defattr(-,root,root)
 %doc python2/CHANGES.txt python2/CREDITS.txt python2/LICENSES.txt python2/README.rst python2/TODO.txt
 %py_platsitedir/lxml*
 %exclude %{_docdir}/%{name}/doc
 
 %files -n python3-%{modname}
-%defattr(-,root,root)
 %doc python3/CHANGES.txt python3/CREDITS.txt python3/LICENSES.txt python3/README.rst python3/TODO.txt
 %py3_platsitedir/lxml*
 %exclude %{_docdir}/%{name}/doc
 
 %files docs
-%defattr(-,root,root)
 %doc %{_docdir}/%{name}/doc
+
 
 
