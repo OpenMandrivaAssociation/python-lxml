@@ -1,19 +1,18 @@
 %define modname lxml
 
-Name:           python-%{modname}
-URL:            http://codespeak.net/lxml/
-Summary:        A Pythonic binding for the libxml2 and libxslt libraries
-Version:        3.2.3
-Release:        1
-License:        BSD
-Group:          Development/Python
-Source:         http://pypi.python.org/packages/source/l/lxml/lxml-%{version}.tar.gz
-BuildRequires:  python-devel
-BuildRequires:  libxml2-devel
-BuildRequires:  libxslt-devel
-BuildRequires:  python-cython
-
-BuildRequires:  python-setuptools
+Summary:	A Pythonic binding for the libxml2 and libxslt libraries
+Name:		python-%{modname}
+Version:	3.2.3
+Release:	1
+License:	BSD
+Group:		Development/Python
+Url:		http://codespeak.net/lxml/
+Source0:	http://pypi.python.org/packages/source/l/lxml/lxml-%{version}.tar.gz
+BuildRequires:	python-cython
+BuildRequires:	python-setuptools
+BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(libxslt)
+BuildRequires:	pkgconfig(python)
 
 %description
 lxml is a Pythonic binding for the libxml2 and libxslt libraries. It follows
@@ -22,10 +21,10 @@ libxml2 tree. It also extends this API to expose libxml2 and libxslt specific
 functionality, such as XPath, Relax NG, XML Schema, XSLT, and c14n.
 
 %package -n python3-%{modname}
-Summary:    A Pythonic binding for the libxml2 and libxslt libraries
-Group:      Development/Python
-BuildRequires:  python3-devel
-BuildRequires:  python3-cython
+Summary:	A Pythonic binding for the libxml2 and libxslt libraries
+Group:		Development/Python
+BuildRequires:	python3-devel
+BuildRequires:	pkgconfig(python3)
 
 %description
 lxml is a Pythonic binding for the libxml2 and libxslt libraries. It follows
@@ -61,9 +60,7 @@ pushd python3
 %{__python3} setup.py build --with-cython
 popd
 
-
 %install
-
 pushd python2
 %{__python} setup.py install --root=%{buildroot}
 popd
@@ -76,19 +73,16 @@ popd
 mkdir -p %{buildroot}%{_docdir}/%{name}/doc
 cp -r python2/doc/* %{buildroot}%{_docdir}/%{name}/doc
 
-
 %files
 %doc python2/CHANGES.txt python2/CREDITS.txt python2/LICENSES.txt python2/README.rst python2/TODO.txt
-%py_platsitedir/lxml*
+%{py_platsitedir}/lxml*
 %exclude %{_docdir}/%{name}/doc
 
 %files -n python3-%{modname}
 %doc python3/CHANGES.txt python3/CREDITS.txt python3/LICENSES.txt python3/README.rst python3/TODO.txt
-%py3_platsitedir/lxml*
+%{py3_platsitedir}/lxml*
 %exclude %{_docdir}/%{name}/doc
 
 %files docs
 %doc %{_docdir}/%{name}/doc
-
-
 
