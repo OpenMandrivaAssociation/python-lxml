@@ -14,6 +14,7 @@ License:        BSD
 URL:            http://lxml.de
 Source0:        http://lxml.de/files/lxml-%{version}.tgz
 Source1:        http://lxml.de/files/lxml-%{version}.tgz.asc
+Source2:        %{name}.rpmlintrc
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
