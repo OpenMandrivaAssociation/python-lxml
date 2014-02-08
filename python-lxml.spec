@@ -4,7 +4,7 @@ Name:           python-%{modname}
 URL:            http://codespeak.net/lxml/
 Summary:        A Pythonic binding for the libxml2 and libxslt libraries
 Version:        3.2.1
-Release:        1
+Release:        2
 License:        BSD
 Group:          Development/Python
 Source:         http://pypi.python.org/packages/source/l/lxml/lxml-%{version}.tar.gz
