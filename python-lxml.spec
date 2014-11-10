@@ -17,12 +17,12 @@ BuildRequires:  libxslt-devel
 %if %{with python2}
 BuildRequires:  pkgconfig(python2)
 BuildRequires:  python2-distribute
-BuildRequires:  python2-cython >= 0.17.1
+BuildRequires:  python2-cython
 %endif
 
 BuildRequires:  pkgconfig(python3)
 BuildRequires:  python-setuptools
-BuildRequires:	python-cython >= 0.20.2-2
+BuildRequires:	python-cython
 
 Requires:       python-cssselect
 
