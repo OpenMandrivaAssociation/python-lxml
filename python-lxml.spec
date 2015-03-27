@@ -2,10 +2,9 @@
 
 Name:           python-lxml
 Version:        3.3.5
-Release:        4
+Release:        5
 Summary:        ElementTree-like Python bindings for libxml2 and libxslt
-
-
+Group:			Development/Python
 License:        BSD
 URL:            http://lxml.de
 Source0:        http://lxml.de/files/lxml-%{version}.tgz
