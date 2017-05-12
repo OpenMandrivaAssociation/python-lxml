@@ -1,7 +1,7 @@
 %bcond_without python2
 
 Name:           python-lxml
-Version:        3.6.0
+Version:        3.7.2
 Release:        1
 Summary:        ElementTree-like Python bindings for libxml2 and libxslt
 Group:          Development/Python
