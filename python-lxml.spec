@@ -17,7 +17,6 @@ BuildRequires:	python2-cython
 %endif
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python-setuptools
-BuildRequires:	python-cython
 Requires:	python-cssselect
 
 %description
@@ -51,43 +50,27 @@ unlike the default bindings.
 %prep
 %setup -q -n lxml-%{version}
 
-# remove the C extension so that it will be rebuilt using the latest Cython
-rm -f src/lxml/lxml.etree.c
-rm -f src/lxml/lxml.etree.h
-rm -f src/lxml/lxml.etree_api.h
-rm -f src/lxml/lxml.objectify.c
-
-chmod a-x doc/rest2html.py
-%{__sed} -i 's/\r//' doc/s5/ui/default/print.css \
-    doc/s5/ep2008/atom.rng \
-    doc/s5/ui/default/iepngfix.htc
-
 %if 0%{?with_python2}
 rm -rf ../py2
 cp -r . ../py2
 %endif
 
 %build
-CFLAGS="%{optflags}" python setup.py build --with-cython
+CFLAGS="%{optflags}" python setup.py build --without-cython
 
 %if %{with python2}
-cp src/lxml/lxml.etree.c ../py2/src/lxml
-cp src/lxml/lxml.etree.h ../py2/src/lxml
-cp src/lxml/lxml.etree_api.h ../py2/src/lxml
-cp src/lxml/lxml.objectify.c ../py2/src/lxml
-
 pushd ../py2
-CFLAGS="%{optflags}" python2 setup.py build --with-cython
+CFLAGS="%{optflags}" python2 setup.py build --without-cython
 popd
 %endif
 
 %install
 rm -rf %{buildroot}
-python setup.py install --skip-build --no-compile --with-cython --root %{buildroot}
+python setup.py install --skip-build --no-compile --without-cython --root %{buildroot}
 
 %if %{with python2}
 pushd ../py2
-python2 setup.py install --skip-build --no-compile --with-cython --root %{buildroot}
+python2 setup.py install --skip-build --no-compile --without-cython --root %{buildroot}
 popd
 %endif
 
