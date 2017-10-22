@@ -1,28 +1,24 @@
 %bcond_without python2
 
-Name:           python-lxml
-Version:        3.7.2
-Release:        1
-Summary:        ElementTree-like Python bindings for libxml2 and libxslt
-Group:          Development/Python
-License:        BSD
-URL:            http://lxml.de
-Source0:        http://lxml.de/files/lxml-%{version}.tgz
-Source1:        %{name}.rpmlintrc
-
-BuildRequires:  libxslt-devel
-
+Name:		python-lxml
+Version:	4.1.0
+Release:	1
+Summary:	ElementTree-like Python bindings for libxml2 and libxslt
+Group:		Development/Python
+License:	BSD
+URL:		http://lxml.de
+Source0:	http://lxml.de/files/lxml-%{version}.tgz
+Source1:	%{name}.rpmlintrc
+BuildRequires:	libxslt-devel
 %if %{with python2}
-BuildRequires:  pkgconfig(python2)
-BuildRequires:  python2-distribute
-BuildRequires:  python2-cython
+BuildRequires:	pkgconfig(python2)
+BuildRequires:	python2-distribute
+BuildRequires:	python2-cython
 %endif
-
-BuildRequires:  pkgconfig(python3)
-BuildRequires:  python-setuptools
+BuildRequires:	pkgconfig(python3)
+BuildRequires:	python-setuptools
 BuildRequires:	python-cython
-
-Requires:       python-cssselect
+Requires:	python-cssselect
 
 %description
 lxml provides a Python binding to the libxslt and libxml2 libraries.
@@ -33,16 +29,15 @@ rather than encoded UTF-8 and handles memory management automatically,
 unlike the default bindings.
 
 %package docs
-Summary:        Documentation for %{name}
-BuildArch:      noarch
+Summary:	Documentation for %{name}
+BuildArch:	noarch
 
 %description docs
 This package provides the documentation for %{name}, e.g. the API as html.
 
 %if %{with python2}
 %package -n python2-lxml
-Summary:        ElementTree-like Python 2 bindings for libxml2 and libxslt
-
+Summary:	ElementTree-like Python 2 bindings for libxml2 and libxslt
 
 %description -n python2-lxml
 lxml provides a Python 2 binding to the libxslt and libxml2 libraries.
@@ -97,18 +92,15 @@ popd
 %endif
 
 %files
-%defattr(-,root,root,-)
 %doc LICENSES.txt PKG-INFO CREDITS.txt CHANGES.txt
 %{python_sitearch}/lxml
 %{python_sitearch}/lxml-*.egg-info
 
 %files docs
-%defattr(-,root,root,-)
 %doc doc/*
 
 %if %{with python2}
 %files -n python2-lxml
-%defattr(-,root,root,-)
 %doc LICENSES.txt PKG-INFO CREDITS.txt CHANGES.txt
 %{python2_sitearch}/lxml-*.egg-info
 %{python2_sitearch}/lxml
