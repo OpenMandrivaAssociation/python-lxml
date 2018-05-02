@@ -16,6 +16,7 @@ BuildRequires:	python2-distribute
 BuildRequires:	python2-cython
 %endif
 BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(zlib)
 BuildRequires:	python-setuptools
 Requires:	python-cssselect
 
