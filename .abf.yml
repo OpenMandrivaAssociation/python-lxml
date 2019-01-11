@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   lxml-4.2.1.tgz: 5ac888d5957f74298fb6daf74778bd91812f7571
+sources:
+  lxml-4.2.5.tar.gz: f75a490b2375ea924072eb298585461357730591

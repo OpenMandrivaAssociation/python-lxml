@@ -1,13 +1,13 @@
 %bcond_without python2
 
 Name:		python-lxml
-Version:	4.2.1
-Release:	2
+Version:	4.2.5
+Release:	1
 Summary:	ElementTree-like Python bindings for libxml2 and libxslt
 Group:		Development/Python
 License:	BSD
 URL:		http://lxml.de
-Source0:	http://lxml.de/files/lxml-%{version}.tgz
+Source0:	http://pypi.io/packages/source/l/lxml/lxml-%{version}.tar.gz
 Source1:	%{name}.rpmlintrc
 BuildRequires:	libxslt-devel
 %if %{with python2}
@@ -57,7 +57,7 @@ cp -r . ../py2
 %endif
 
 %build
-CFLAGS="%{optflags}" python setup.py build --without-cython
+CFLAGS="%{optflags}" %py_build --without-cython
 
 %if %{with python2}
 pushd ../py2
@@ -66,7 +66,6 @@ popd
 %endif
 
 %install
-rm -rf %{buildroot}
 python setup.py install --skip-build --no-compile --without-cython --root %{buildroot}
 
 %if %{with python2}
@@ -77,8 +76,8 @@ popd
 
 %files
 %doc LICENSES.txt PKG-INFO CREDITS.txt CHANGES.txt
-%{python_sitearch}/lxml
-%{python_sitearch}/lxml-*.egg-info
+%{py_platsitedir}/lxml
+%{py_platsitedir}/lxml-*.egg-info
 
 %files docs
 %doc doc/*
@@ -86,6 +85,6 @@ popd
 %if %{with python2}
 %files -n python2-lxml
 %doc LICENSES.txt PKG-INFO CREDITS.txt CHANGES.txt
-%{python2_sitearch}/lxml-*.egg-info
-%{python2_sitearch}/lxml
+%{py_platsitedir}/lxml-*.egg-info
+%{py_platsitedir}/lxml
 %endif
