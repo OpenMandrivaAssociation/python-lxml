@@ -1,13 +1,13 @@
 %bcond_without python2
 
 Name:		python-lxml
-Version:	4.4.0
+Version:	4.4.1
 Release:	1
 Summary:	ElementTree-like Python bindings for libxml2 and libxslt
 Group:		Development/Python
 License:	BSD
 URL:		http://lxml.de
-Source0:	https://files.pythonhosted.org/packages/e1/f5/5eb3b491958dcfdcfa5daae3c655ab59276bc216ca015e44743c9c220e9e/lxml-4.4.0.tar.gz
+Source0:	https://files.pythonhosted.org/packages/c4/43/3f1e7d742e2a7925be180b6af5e0f67d38de2f37560365ac1a0b9a04c015/lxml-4.4.1.tar.gz
 Source1:	%{name}.rpmlintrc
 BuildRequires:	libxslt-devel
 %if %{with python2}
