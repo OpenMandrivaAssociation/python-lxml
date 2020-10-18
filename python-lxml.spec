@@ -1,20 +1,13 @@
-%bcond_without python2
-
 Name:		python-lxml
-Version:	4.5.0
+Version:	4.6.1
 Release:	1
 Summary:	ElementTree-like Python bindings for libxml2 and libxslt
 Group:		Development/Python
 License:	BSD
 URL:		http://lxml.de
-Source0:	https://files.pythonhosted.org/packages/39/2b/0a66d5436f237aff76b91e68b4d8c041d145ad0a2cdeefe2c42f76ba2857/lxml-4.5.0.tar.gz
+Source0:	https://files.pythonhosted.org/packages/c5/2f/a0d8aa3eee6d53d5723d89e1fc32eee11e76801b424e30b55c7aa6302b01/lxml-4.6.1.tar.gz
 Source1:	%{name}.rpmlintrc
-BuildRequires:	libxslt-devel
-%if %{with python2}
-BuildRequires:	pkgconfig(python2)
-BuildRequires:	python2-distribute
-BuildRequires:	python2-cython
-%endif
+BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	python-setuptools
@@ -51,29 +44,11 @@ unlike the default bindings.
 %prep
 %setup -q -n lxml-%{version}
 
-%if 0%{?with_python2}
-rm -rf ../py2
-cp -r . ../py2
-%endif
-
 %build
 CFLAGS="%{optflags}" python setup.py build --without-cython
 
-%if %{with python2}
-pushd ../py2
-CFLAGS="%{optflags}" python2 setup.py build --without-cython
-popd
-%endif
-
 %install
-rm -rf %{buildroot}
 python setup.py install --skip-build --no-compile --without-cython --root %{buildroot}
-
-%if %{with python2}
-pushd ../py2
-python2 setup.py install --skip-build --no-compile --without-cython --root %{buildroot}
-popd
-%endif
 
 %files
 %doc LICENSES.txt PKG-INFO CREDITS.txt CHANGES.txt
@@ -82,10 +57,3 @@ popd
 
 %files docs
 %doc doc/*
-
-%if %{with python2}
-%files -n python2-lxml
-%doc LICENSES.txt PKG-INFO CREDITS.txt CHANGES.txt
-%{python2_sitearch}/lxml-*.egg-info
-%{python2_sitearch}/lxml
-%endif
