@@ -2,7 +2,7 @@
 
 Name:		python-lxml
 Version:	4.8.0
-Release:	2
+Release:	3
 Summary:	ElementTree-like Python bindings for libxml2 and libxslt
 Group:		Development/Python
 License:	BSD
@@ -44,7 +44,7 @@ unlike the default bindings.
 %endif
 
 %prep
-%setup -q -n lxml-%{version}
+%autosetup -n lxml-%{version} -p1
 
 %build
 CFLAGS="%{optflags}" python setup.py build --without-cython
