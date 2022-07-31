@@ -1,11 +1,11 @@
 Name:		python-lxml
-Version:	4.8.0
-Release:	3
+Version:	4.9.1
+Release:	1
 Summary:	ElementTree-like Python bindings for libxml2 and libxslt
 Group:		Development/Python
 License:	BSD
 URL:		http://lxml.de
-Source0:	https://files.pythonhosted.org/packages/3b/94/e2b1b3bad91d15526c7e38918795883cee18b93f6785ea8ecf13f8ffa01e/lxml-4.8.0.tar.gz
+Source0:	https://files.pythonhosted.org/packages/source/l/lxml/lxml-%{version}.tar.gz
 Source1:	%{name}.rpmlintrc
 BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(python)
@@ -32,7 +32,7 @@ This package provides the documentation for %{name}, e.g. the API as html.
 %prep
 %autosetup -n lxml-%{version} -p1
 # Remove pregenerated Cython C sources
-find -type f -name '*.c' -print -delete
+#find -type f -name '*.c' -print -delete
 
 %build
 %py_build -- --without-cython
