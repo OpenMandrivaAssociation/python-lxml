@@ -32,7 +32,7 @@ This package provides the documentation for %{name}, e.g. the API as html.
 %prep
 %autosetup -n lxml-%{version} -p1
 # Remove pregenerated Cython C sources
-find -type f -name '*.c' -print -delete
+#find -type f -name '*.c' -print -delete
 
 %build
 %py_build -- --without-cython
