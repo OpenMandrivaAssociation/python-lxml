@@ -1,6 +1,6 @@
 Name:		python-lxml
 Version:	4.9.3
-Release:	1
+Release:	2
 Summary:	ElementTree-like Python bindings for libxml2 and libxslt
 Group:		Development/Python
 License:	BSD
@@ -11,7 +11,7 @@ BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	python-setuptools
-#BuildRequires:	python3dist(cython)
+BuildRequires:	python3dist(cython) < 1.0
 Requires:	python-cssselect
 
 %description
@@ -32,10 +32,10 @@ This package provides the documentation for %{name}, e.g. the API as html.
 %prep
 %autosetup -n lxml-%{version} -p1
 # Remove pregenerated Cython C sources
-#find -type f -name '*.c' -print -delete
+find -type f -name '*.c' -print -delete
 
 %build
-%py_build -- --without-cython
+%py_build
 
 %install
 %py_install
