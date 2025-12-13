@@ -12,6 +12,7 @@ BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	python-setuptools
 BuildRequires:	python3dist(cython)
+BuildRequires:	python3dist(pip)
 Requires:	python-cssselect
 
 %description
