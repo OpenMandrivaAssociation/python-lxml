@@ -1,6 +1,6 @@
 Name:		python-lxml
-Version:	4.9.3
-Release:	3
+Version:	6.0.2
+Release:	1
 Summary:	ElementTree-like Python bindings for libxml2 and libxslt
 Group:		Development/Python
 License:	BSD
@@ -11,7 +11,8 @@ BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	python-setuptools
-BuildRequires:	python3dist(cython) < 1.0
+BuildRequires:	python3dist(cython)
+BuildRequires:	python3dist(pip)
 Requires:	python-cssselect
 
 %description
@@ -43,7 +44,7 @@ find -type f -name '*.c' -print -delete
 %files
 %doc LICENSES.txt PKG-INFO CREDITS.txt CHANGES.txt
 %{python_sitearch}/lxml
-%{python_sitearch}/lxml-*.egg-info
+%{python_sitearch}/lxml-%{version}.dist-info
 
 %files docs
 %doc doc/*
