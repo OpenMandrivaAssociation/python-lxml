@@ -44,7 +44,7 @@ find -type f -name '*.c' -print -delete
 %files
 %doc LICENSES.txt PKG-INFO CREDITS.txt CHANGES.txt
 %{python_sitearch}/lxml
-#{python_sitearch}/lxml-*.egg-info
+%{python_sitearch}/lxml-%{version}.dist-info
 
 %files docs
 %doc doc/*
