@@ -1,6 +1,6 @@
 Name:		python-lxml
 Version:	6.0.2
-Release:	2
+Release:	3
 Summary:	ElementTree-like Python bindings for libxml2 and libxslt
 Group:		Development/Python
 License:	BSD
@@ -13,7 +13,7 @@ BuildRequires:	pkgconfig(zlib)
 BuildRequires:	python-setuptools
 BuildRequires:	python%{pyver}dist(cython)
 BuildRequires:	python%{pyver}dist(pip)
-Requires:	python%{pyver}(cssselect)
+Requires:	python%{pyver}dist(cssselect)
 
 %description
 lxml provides a Python binding to the libxslt and libxml2 libraries.
