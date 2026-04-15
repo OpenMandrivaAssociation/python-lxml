@@ -1,18 +1,23 @@
+%define module lxml
+
 Name:		python-lxml
-Version:	6.0.2
-Release:	3
+Version:	6.0.4
+Release:	1
 Summary:	ElementTree-like Python bindings for libxml2 and libxslt
 Group:		Development/Python
 License:	BSD
 URL:		https://lxml.de
-Source0:	https://files.pythonhosted.org/packages/source/l/lxml/lxml-%{version}.tar.gz
+Source0:	https://files.pythonhosted.org/packages/source/l/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Source1:	%{name}.rpmlintrc
+
+BuildSystem:	python
 BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(zlib)
-BuildRequires:	python-setuptools
 BuildRequires:	python%{pyver}dist(cython)
 BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(wheel)
 Requires:	python%{pyver}dist(cssselect)
 
 %description
@@ -30,21 +35,17 @@ BuildArch:	noarch
 %description docs
 This package provides the documentation for %{name}, e.g. the API as html.
 
-%prep
-%autosetup -n lxml-%{version} -p1
+%prep -a
 # Remove pregenerated Cython C sources
 find -type f -name '*.c' -print -delete
 
-%build
-%py_build
-
-%install
-%py_install
+%build -p
+export LDFLAGS="%{ldflags} -lpython%{py_ver}"
 
 %files
 %doc LICENSES.txt PKG-INFO CREDITS.txt CHANGES.txt
-%{python_sitearch}/lxml
-%{python_sitearch}/lxml-%{version}.dist-info
+%{python_sitearch}/%{module}
+%{python_sitearch}/%{module}-%{version}.dist-info
 
 %files docs
 %doc doc/*

@@ -1,1 +1,3 @@
-addFilter("E: devel-file-in-non-devel-package")
+addFilter("W: devel-file-in-non-devel-package")
+# upstream issue
+addFilter("incorrect-fsf-address")
