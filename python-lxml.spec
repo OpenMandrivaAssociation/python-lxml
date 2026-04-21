@@ -2,7 +2,7 @@
 
 Name:		python-lxml
 Version:	6.1.0
-Release:	1
+Release:	2
 Summary:	ElementTree-like Python bindings for libxml2 and libxslt
 Group:		Development/Python
 License:	BSD
@@ -11,6 +11,7 @@ Source0:	https://files.pythonhosted.org/packages/source/l/%{module}/%{module}-%{
 Source1:	%{name}.rpmlintrc
 
 BuildSystem:	python
+BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(zlib)
