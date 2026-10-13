@@ -1,7 +1,7 @@
 %define module lxml
 
 Name:		python-lxml
-Version:	6.1.1
+Version:	6.1.3
 Release:	1
 Summary:	ElementTree-like Python bindings for libxml2 and libxslt
 Group:		Development/Python
